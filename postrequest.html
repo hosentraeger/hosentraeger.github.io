@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>post request json</title>
+</head>
+<body>
+<script>
+  const Url='https://services.starfinanz.de/sfm_mobi/v2020.03/sapp';
+  const Data = { 
+    "productId": 1670,
+    "build": "1.0.1",
+    "platformId": 1,
+    "blz": "25050180", 
+    "device": 
+    "IOS_PHONE_HIGH", 
+    "bankCodes": ["25050180"]
+  };
+  const oParam = {
+     headers:{
+       "Content-Type: application/json"
+     },
+    body:Data,
+    method:"POST"
+  };
+  fetch(Url,oParam)
+  .then(data=>{return data.json()})
+  .then(res=>{console.log(res)})
+  .catch(error=>console.log(error))
+};
+</script>
+</body>
+</html>
